@@ -3,5 +3,7 @@ export interface Tuser {
     email: String,
     phone: String,
     role: String,
-    password: String
+    password: String,
+    isDelete: Boolean,
+    isBlock: Boolean
 }

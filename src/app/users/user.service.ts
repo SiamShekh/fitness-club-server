@@ -3,9 +3,9 @@ import { Tuser } from "./user.interface";
 import { UserModels } from "./user.schema";
 import jwt from 'jsonwebtoken';
 import envoroments from "../../config/_ENV";
-export const CreateNewUserService = async (payload: Tuser) => {
-    const result = await UserModels.create(payload);
 
+export const CreateNewUserService = async (payload: Tuser) => {
+    const result = await UserModels.create({ ...payload, isBlock: false, isDelete: false });
     return result;
 };
 

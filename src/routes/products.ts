@@ -8,7 +8,7 @@ ProductsRoutes.post('/create-products', ZodVaildationCheck(ProductsZod), CreateN
 ProductsRoutes.put('/update-products/:id', UpdateProducts);
 ProductsRoutes.delete('/delete-products/:id', softDeleteProducts);
 ProductsRoutes.get('/get-products/:id', getSingleProducts);
-ProductsRoutes.get('/', getAllProducts);
+ProductsRoutes.get('/get-all', getAllProducts);
 ProductsRoutes.get('/filter', filterProduct);
 
 

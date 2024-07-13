@@ -26,6 +26,14 @@ const UserSchema = new Schema<Tuser>({
         required: true,
         length: 6
     },
+    isDelete: {
+        type: Boolean,
+        required: true
+    },
+    isBlock: {
+        type: Boolean,
+        required: true
+    }
 }, {
     timestamps: true
 });
@@ -33,11 +41,11 @@ const UserSchema = new Schema<Tuser>({
 UserSchema.pre("save", async function (next) {
     const user = this;
     const isUser = await UserModels.findOne({ $or: [{ email: user?.email }, { phone: user?.phone }] });
-   
+
     if (isUser == null) {
         const hash = await bcrypt.hash(user?.password as string, Number(envoroments.salt));
         user.password = hash;
-        
+
         next();
     } else {
         throw new Error("User already exist!")
