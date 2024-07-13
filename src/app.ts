@@ -3,8 +3,11 @@ import httpStatus from 'http-status';
 import Routes from './routes/route';
 import no_routes from './config/no_route';
 import globalError from './config/global_error';
-const app: Application = express();
+import cors from 'cors';
 
+const app: Application = express();
+app.use(express.json());
+app.use(cors());
 app.use('/api/v1', Routes);
 
 app.get('/', async (req, res) => {
