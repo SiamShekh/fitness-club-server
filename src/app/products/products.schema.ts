@@ -6,7 +6,6 @@ const ProductsSchema = new Schema<TProducts>({
     name: {
         type: String,
         required: true,
-        unique: true
     },
     price: {
         type: String,
@@ -52,6 +51,8 @@ ProductsSchema.pre("save", async function (next) {
     const isProducts = await ProductModels.findOne({ name: products.name });
 
     if (isProducts == null) {
+        next();
+    } else if (isProducts.isDelete == true) {
         next();
     } else {
         throw new Error("Products already exist!")

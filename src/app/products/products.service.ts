@@ -18,8 +18,9 @@ export const FilterProductServices = async (payload: TFilterProducts) => {
     const filterByName = await ProductModels.find({
         $and:
             [
-                { name: { $regex: payload.name } },
-                { category: { $regex: payload.category } },
+                { name: { $regex: payload.name || "" } },
+                { category: { $regex: payload.category || "" } },
+                {}
             ]
     });
 
