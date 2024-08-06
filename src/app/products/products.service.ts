@@ -22,7 +22,10 @@ export const FilterProductServices = async (payload: TFilterProducts) => {
                 { category: { $regex: payload.category || "" } },
                 {}
             ]
-    });
+    }).find({
+        isDelete: false,
+        stock: { $gt: 0 }
+    }).limit(100);
 
 
     return filterByName;

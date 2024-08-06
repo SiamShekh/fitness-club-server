@@ -70,7 +70,7 @@ export const getAllProducts = CatchAsync(async (req: Request, res: Response) => 
     const result = await ProductModels.find({
         isDelete: false,
         stock: { $gt: 0 }
-    });
+    }).limit(100);
     return res.status(httpStatus.OK).json({
         msg: `just updated!`,
         status: httpStatus.OK,
