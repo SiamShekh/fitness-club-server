@@ -9,7 +9,7 @@ const products_1 = __importDefault(require("./products"));
 const carts_1 = __importDefault(require("./carts"));
 const review_1 = __importDefault(require("./review"));
 const Routes = express_1.default.Router();
-Routes.use('/user', order_1.default);
+Routes.use('/order', order_1.default);
 Routes.use('/product', products_1.default);
 Routes.use('/cart', carts_1.default);
 Routes.use('/review', review_1.default);

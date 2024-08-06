@@ -17,7 +17,8 @@ const _ENV_1 = __importDefault(require("./config/_ENV"));
 const app_1 = __importDefault(require("./app"));
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield mongoose_1.default.connect(_ENV_1.default.mongodb);
+        // await mongoose.connect(envoroments.mongodb as string);
+        yield mongoose_1.default.connect("mongodb+srv://Siam4201:Asik1234*@cluster0.yb7xjgu.mongodb.net/fitness-club");
         app_1.default.listen(_ENV_1.default.port, () => {
             console.log(`SEVER RUNING AT ${_ENV_1.default.port}`);
         });

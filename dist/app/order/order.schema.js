@@ -10,12 +10,10 @@ const UserSchema = new mongoose_1.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     phone: {
         type: String,
         required: true,
-        unique: true
     },
     shiping: {
         street_address: {
@@ -26,7 +24,7 @@ const UserSchema = new mongoose_1.Schema({
             type: String,
             required: true
         },
-        phone: {
+        state: {
             type: String,
             required: true
         },
@@ -48,7 +46,7 @@ const UserSchema = new mongoose_1.Schema({
             type: String,
             required: true
         },
-        phone: {
+        state: {
             type: String,
             required: true
         },
@@ -64,4 +62,4 @@ const UserSchema = new mongoose_1.Schema({
 }, {
     timestamps: true
 });
-exports.UserModels = (0, mongoose_1.model)("user", UserSchema);
+exports.UserModels = (0, mongoose_1.model)("order", UserSchema);
